@@ -1,0 +1,191 @@
+:root {
+  --logo-color: #006ecf;
+  --btn-color:  #004AAD;
+}
+
+.logonameheader {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--logo-color);
+}
+
+header a:hover {
+  color: #007bff;
+}
+
+select:focus,
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.postbtn {
+  background: var(--btn-color) !important;
+  color: white !important;
+  border: 1px solid #6a97eb;
+  font-size: 18px;
+  border-radius: 5px !important;
+}
+.inputhome{
+  border:1px solid #ffc3b9;
+}
+.headerbox-nav {
+  background:white ;
+
+}
+.login-icon i {
+  color: var(--logo-color);
+  cursor: pointer;
+}
+
+.login-icon:hover {
+  opacity: 0.8;
+}
+
+.dropdown-menu-custom {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+}
+
+.dropdown-item-custom {
+  padding: 10px 15px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-item-custom:hover {
+  background-color: #f0f0f0;
+  color: #007bff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .logonameheader {
+    font-size: 10px;
+  }
+ 
+  .postbtn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .dropdown-menu-custom {
+    top: 36px;
+    right: 0;
+  }
+}
+.bannerbox {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.homeform-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.homebody {
+  width: 100%;
+}
+
+.logo-containerbox{
+ 
+  position: relative;
+}
+.logo-pest{
+ 
+  background: white;
+
+}
+.formhome-container{
+  padding:30px 30px;
+}
+.headerbox-nav{
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+.titlestyle {
+  padding: 10px 50px;
+  background: #004AAD;
+  color: white !important;
+  border-radius: 20px;
+  line-height: 30px;
+}
+.titlestyle2{
+  display:none;
+}
+
+  .headerbtn {
+    background: #004AAD !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 8px 30px !important;
+}
+
+/* Mobile-specific Styles */
+@media (max-width: 768px) {
+  .logo-pest {
+   
+}
+.logo-containerbox {
+  height: 50px;
+ 
+}
+.logo-pest {
+
+  
+}
+.headerbox-nav {
+  padding-left: 0rem !important;
+  padding-right: 1rem !important;
+}
+.vendor-value {
+  background-color: #e8f3ff;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #eef7ff;
+  margin: 10px 0px;
+}
+.headerbtn:hover .full-name-tooltip,
+.headerbtn:focus .full-name-tooltip {
+  display: block;
+}
+.full-name-tooltip {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  display: none;
+}
+}
+
+/* Tablet-specific Styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+  .homeform-overlay {
+    top: 55%; /* Slightly higher position for tablets */
+  }
+  
+  
+
+}

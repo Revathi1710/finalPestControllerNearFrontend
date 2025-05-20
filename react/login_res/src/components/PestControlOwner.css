@@ -1,0 +1,32 @@
+.vendor-profile h4 {
+    font-weight: 600;
+  }
+  
+  .vendor-profile .nav-tabs .nav-link.active {
+    border-bottom: 3px solid #007bff;
+    font-weight: 500;
+  }
+  
+  .vendor-profile .btn {
+    font-size: 18px;
+    padding: 6px 12px;
+  }
+  .vendor-profile{
+    text-align: left;
+  }  
+  .viewvendor-title{
+    color:var(--btn-color) ;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .addressPostpage{
+    font-size: 18px;
+  }
+
+
+  @media only screen and (max-width: 768px){
+    .addressPostpage{
+    font-size: 12px;
+    margin-top: 6px;
+}
+}

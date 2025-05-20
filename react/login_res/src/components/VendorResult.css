@@ -1,0 +1,49 @@
+.bodyvendorresult{
+      background-color:#e7e7e7;
+}
+.vendor-list .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .vendor-list .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  .resultImages{
+    height: 300px;
+    object-fit: cover;
+  }
+  .resultcompanyName{
+    font-size: 20px;
+    font-weight: 600;
+    color: black !important;
+    margin-bottom:20px;
+  }
+  .addressresult{
+    font-size: 17px;
+  }
+  .logoresult{
+    position: absolute;
+    left: 0;
+    top: 0;
+   
+    width: 90px;
+    background: none;
+    object-fit: cover;
+    /* background: #0084d3; */
+    /* padding: 5px; */
+    border-radius: 10px;
+
+  }
+  .ellipsis-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:#6f6f6f;
+  }
+  .backbtn{
+    text-align: left;
+  }
+  
