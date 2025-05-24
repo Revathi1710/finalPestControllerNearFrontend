@@ -155,7 +155,7 @@ export default function SignUp() {
 
     const coords = await getCoordinatesFromPincode(formData.pincode);
     if (!coords) {
-      toast.error('Invalid coordinates from pincode');
+      toast.error('Invalid  pincode');
       return;
     }
 
@@ -281,20 +281,25 @@ export default function SignUp() {
                   required
                 />
                 
-                 {errors.contactNumber && <div className="text-danger mb-2">{errors.contactNumber}</div>}
-              </div>  </div>
+               
+              </div>  {errors.contactNumber && <div className="text-danger mb-2">{errors.contactNumber}</div>}
+                </div>
               <div className='col-sm-6'>
               <div className="mb-3 input-group">
                 <span className="input-group-text"><i className="fa fa-envelope-o" /></span>
                 <input
                   name="email"
+                  type="email"
                   className="form-control"
                   placeholder="Email Id"
                   onChange={handleChange}
                   required
                 />
-                {errors.email && <div className="text-danger mb-2">{errors.email}</div>}
-              </div>  </div>
+               
+              </div> {errors.email && <div className="text-danger mb-2">{errors.email}</div>}
+              
+              
+                </div>
               <div className='col-sm-6'>
               <div className="mb-3 input-group">
                 <span className="input-group-text"><i className="fa fa-globe" /></span>
@@ -388,12 +393,14 @@ export default function SignUp() {
           </span>
         </div>
 
-        {(errors.password || errors.match) && (
+       
+      </div>
+      {(errors.password || errors.match) && (
           <div className="text-danger mb-2">
             {errors.password || errors.match}
           </div>
         )}
-      </div></div>
+      </div>
               <div className="form-check mb-3">
                 <input className="form-check-input" type="checkbox" name="declarationAccepted" checked={formData.declarationAccepted} onChange={handleChange} />
                 <label className="form-check-label"> I hereby declare that the information provided is true.</label>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../icons/logopest2.png';
+import logo from '../icons/pcnm_logoh-65blue-red.png';
 
 function Header() {
   const [userName, setUserName] = useState('');

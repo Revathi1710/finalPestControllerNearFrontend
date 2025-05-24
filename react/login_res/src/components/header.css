@@ -139,8 +139,9 @@ input:focus {
 /* Mobile-specific Styles */
 @media (max-width: 768px) {
   .logo-pest {
-   
+           height: 100%;
 }
+
 .logo-containerbox {
   height: 50px;
  
@@ -150,7 +151,7 @@ input:focus {
   
 }
 .headerbox-nav {
-  padding-left: 0rem !important;
+  padding-left: 0.5rem !important;
   padding-right: 1rem !important;
 }
 .vendor-value {
