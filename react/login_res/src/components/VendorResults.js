@@ -8,40 +8,30 @@ import { BsWhatsapp } from "react-icons/bs";
 import axios from "axios";
 
 const VendorResults = () => {
-  const { state } = useLocation();
-  const vendors = state?.vendors || [];
+  const location = useLocation();
+  const vendors = location.state?.vendors || []; // ✅ Correct way to access passed state
   const navigate = useNavigate();
 
-  // Modal state
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     number: "",
-    state: "",
     pincode: "",
     businessType: "Residential",
   });
 
-  // Check if user already exists
   const existingUser = localStorage.getItem("UserId");
 
-  // Fetch user details
   useEffect(() => {
     const fetchUserDetails = async () => {
       const userId = localStorage.getItem("UserId");
       if (!userId) return;
 
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/getUserDetails/${userId}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/getUserDetails/${userId}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
 
         if (response.ok) {
           const data = await response.json();
@@ -65,8 +55,6 @@ const VendorResults = () => {
 
   const showModel = () => setShowModal(true);
   const hideModel = () => setShowModal(false);
-
-
 
   const handleVendorClick = async (vendorId) => {
     const userId = localStorage.getItem("UserId");
@@ -97,15 +85,13 @@ const VendorResults = () => {
   const validate = () => {
     const errors = {};
     if (!formData.name) errors.name = "Name is required.";
-    if (!formData.email) errors.email = "Email is required.";
     if (!formData.number) errors.number = "Mobile number is required.";
-    if (!formData.state) errors.state = "State is required.";
     if (!formData.pincode) errors.pincode = "Pincode is required.";
     return errors;
   };
 
   const getCoordinatesFromPincode = async (pincode) => {
-    const apiKey = "AIzaSyCGhSnndOY38FfCgNfSldjpZQX6cT_KpC8"; // Replace with your Google API Key
+      const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${pincode}&key=${apiKey}`;
     try {
       const response = await axios.get(url);
@@ -153,7 +139,7 @@ const VendorResults = () => {
           localStorage.setItem("UserId", result.userId);
         }
         setShowModal(false);
-        navigate("/vendors", { state: { vendors: result.vendors || [] } });
+        navigate("/vendors", { state: { vendors: result.vendors || [] } }); // ✅ pass via state
       } else {
         alert(result.message || "Submission failed.");
       }
@@ -293,16 +279,7 @@ const VendorResults = () => {
                       className="form-control"
                     />
                   </div>
-                  <div className="col-sm-6 mb-2">
-                    <label>Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="form-control"
-                    />
-                  </div>
+                
                   <div className="col-sm-6 mb-2">
                     <label>Mobile Number</label>
                     <input
@@ -313,16 +290,7 @@ const VendorResults = () => {
                       className="form-control"
                     />
                   </div>
-                  <div className="col-sm-6 mb-2">
-                    <label>State</label>
-                    <input
-                      type="text"
-                      name="state"
-                      value={formData.state}
-                      onChange={handleChange}
-                      className="form-control"
-                    />
-                  </div>
+                 
                   <div className="col-sm-6 mb-2">
                     <label>Pincode</label>
                     <input

@@ -519,7 +519,19 @@ label {
 .form-check-input{
     border:1px solid black;
 }
+   .blink-text {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  animation: blink 1s infinite;
+  background-color: red;
+  padding: 7px;
+}
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 @media only screen and (max-width: 768px){
     .mobilebannerbox{
@@ -556,9 +568,7 @@ label {
     .titlestyle {
         padding: 10px 31px;
         background: #004AAD;
-        color: white !important;
-        border-radius: 20px;
-        line-height: 38px;
+        color: px;
         font-weight: normal !important;
     }
     .slick-slider{
@@ -571,14 +581,15 @@ label {
         height: 100% !important;
     }
     .hero-heading {
-        font-size: 22px;
+        font-size:20px;
         padding: 0 1rem;
         position: absolute;
-        top: 19%;
+        top: 17%;
         text-align: center;
         font-weight: normal;
         color: #ffffff;
       
         /* text-shadow: 1px 1px 2px #fff; */
     }
+ 
 }
