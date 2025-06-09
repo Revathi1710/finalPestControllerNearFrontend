@@ -96,11 +96,7 @@ const HomeForm = () => {
   return (
     <div className="container">
       <div className="card shadow-lg border-0 rounded-4 px-4 py-4 formhome-container">
-        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
-          <h4 className="blink-text text-center" style={{ animation: 'blink 1s infinite' }}>
-            Your Reviews, Your Profit
-          </h4>
-        </a>
+     
 
         <h5 className="text-center titlestyle fw-bold">
           Get Licenced Pest Control <br />@ Your Pincode

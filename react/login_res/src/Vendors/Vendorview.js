@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import axios from "axios";
 import "./Vendorview.css";
 import Navbar from "../components/navbar";
 import { toast } from "react-toastify";
 
 const Vendorview = () => {
- 
-
   const [vendorData, setVendorData] = useState({
     businessName: "",
     address: "",
@@ -23,13 +20,27 @@ const Vendorview = () => {
     technicalQualification: "",
     aboutUs: "",
   });
+const specialistOptions = [
+  "Termite Control",
+  "Preconstruction Anti-Termite Treatment",
+  "General Pest Control",
+  "Cockroach Gel Treatment",
+  "Cockroach Control",
+  "Mosquito Control",
+  "Ants Control",
+  "Wood Borer Treatment",
+  "Rat Control",
+  "Bird Control",
+  "Spider Control",
+  "Lizard control",
+  "Dog ticks Control Treatment",
+  "Bed bug treatment",
+];
 
   const [propertyImages, setPropertyImages] = useState([]);
   const [existingPropertyImages, setExistingPropertyImages] = useState([]);
-
   const [logoImage, setLogoImage] = useState(null);
   const [existingLogoImage, setExistingLogoImage] = useState(null);
-
   const [error, setError] = useState(null);
   const [isEditable, setIsEditable] = useState(false);
 
@@ -100,7 +111,11 @@ const Vendorview = () => {
     formData.append("vendorId", vendorId);
 
     Object.entries(vendorData).forEach(([key, value]) => {
-      formData.append(key, value);
+      if (Array.isArray(value)) {
+        value.forEach((val) => formData.append(`${key}[]`, val));
+      } else {
+        formData.append(key, value);
+      }
     });
 
     if (logoImage) {
@@ -135,12 +150,23 @@ const Vendorview = () => {
           <input
             type="text"
             className="form-control"
-            value={vendorData[field]}
-            onChange={(e) => handleChange(field, e.target.value)}
+            value={
+              Array.isArray(vendorData[field])
+                ? vendorData[field].join(", ")
+                : vendorData[field]
+            }
+            onChange={(e) =>
+              handleChange(
+                field,
+                field === "specialistIn"
+                  ? e.target.value.split(",").map((s) => s.trim())
+                  : e.target.value
+              )
+            }
           />
-        ) : (
-          vendorData[field] || "-"
-        )}
+        ) : Array.isArray(vendorData[field])
+          ? vendorData[field].join(", ")
+          : vendorData[field] || "-"}
       </div>
     </>
   );
@@ -173,7 +199,39 @@ const Vendorview = () => {
               {renderField("Address", "address")}
               {renderField("Pincode", "pincode", true)}
               {renderField("Since From", "sinceFrom")}
-              {renderField("Specialist In", "specialistIn")}
+              <div className="vendor-label">Specialist In</div>
+<div className="vendor-value">
+  {isEditable ? (
+    <div className="row">
+      {specialistOptions.map((option, idx) => (
+        <div className="col-md-4" key={idx}>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id={`specialist-${idx}`}
+              checked={vendorData.specialistIn.includes(option)}
+              onChange={(e) => {
+                const updated = e.target.checked
+                  ? [...vendorData.specialistIn, option]
+                  : vendorData.specialistIn.filter((item) => item !== option);
+                handleChange("specialistIn", updated);
+              }}
+            />
+            <label className="form-check-label" htmlFor={`specialist-${idx}`}>
+              {option}
+            </label>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    vendorData.specialistIn?.length
+      ? vendorData.specialistIn.join(", ")
+      : "-"
+  )}
+</div>
+
               {renderField("Pesticide Licence", "pesticideLicence", true)}
               {renderField("GST Number", "gstNumber", true)}
               {renderField("Membership", "membership")}
@@ -199,7 +257,6 @@ const Vendorview = () => {
 
             <>
               <h4>Upload Logo</h4>
-
               <div className="upload-logo">
                 {isEditable && (
                   <label className="upload-box">
@@ -230,6 +287,7 @@ const Vendorview = () => {
                     <div className="image-thumbnail">
                       <img
                         src={`${process.env.REACT_APP_API_URL}/uploads/${existingLogoImage}`}
+                        style={{ width: "100px" }}
                         alt="Existing Logo"
                       />
                     </div>

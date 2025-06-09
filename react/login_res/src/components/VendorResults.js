@@ -152,7 +152,13 @@ const VendorResults = () => {
   return (
     <>
       <Navbar />
+      
       <div className="bodyvendorresult">
+           <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="review-container">
+          <h4 className="blink-text text-center" style={{ animation: 'blink 1s infinite' }}>
+            Your Reviews, Your Profit
+          </h4>
+        </a>
         <div className="container py-5">
           <div className="backbtn mb-3">
             <button className="btn btn-primary" onClick={showModel}>

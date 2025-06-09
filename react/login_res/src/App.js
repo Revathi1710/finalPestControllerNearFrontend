@@ -15,6 +15,8 @@ import ImageSlider from './components/ImageSlider';
 import ForgetPassword from './Vendors/ForgetPassword';
 import ResetPassword from './Vendors/ResetPassword';
 import Vendorview from './Vendors/Vendorview';
+import  AboutDetails from './components/AboutDetails';
+import  UploadImages from './components/UploadImages';
 
 import PestControlOwner from './components/pestcontrolOwner';
 function App() {
@@ -35,6 +37,8 @@ function App() {
           <Route path="/Vendorview" element={< Vendorview />} />
           <Route path="/ForgetPassword" element={< ForgetPassword />} />
           <Route path="/reset-password/:token" element={< ResetPassword />} />
+          <Route path='/AboutDetails'  element={<AboutDetails/>} />
+             <Route path='/UploadImages'  element={<UploadImages/>} />
           
           <Route path="/ImageSlider" element={<  ImageSlider />} />
         

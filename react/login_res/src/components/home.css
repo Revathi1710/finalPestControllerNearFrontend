@@ -519,12 +519,20 @@ label {
 .form-check-input{
     border:1px solid black;
 }
-   .blink-text {
-  text-align: center;
-  color: rgb(255, 255, 255);
-  animation: blink 1s infinite;
-  background-color: red;
-  padding: 7px;
+.review-container{
+    display: flex;
+
+    justify-content: center;
+    padding-top: 10px;
+}
+.blink-text {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    animation: blink 1s infinite;
+    background-color: red;
+    padding: 10px 60px;
+    border-radius: 10px;
+    width:60%;
 }
 
 @keyframes blink {
@@ -590,6 +598,17 @@ label {
         color: #ffffff;
       
         /* text-shadow: 1px 1px 2px #fff; */
+    }
+      .blink-text {
+        text-align: center;
+        color: rgb(255, 255, 255);
+        animation: blink 1s infinite;
+        background-color: red;
+        padding: 5px 20px;
+        border-radius: 10px;
+        font-size: 15px !important;
+        margin-bottom: 0px;
+        width: 80%;
     }
  
 }
